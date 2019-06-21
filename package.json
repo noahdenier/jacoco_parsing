@@ -1,0 +1,27 @@
+{
+  "name": "jacoco-parsing",
+  "version": "1.0.0",
+  "description": "Javascript app for interpreting the results of a jacoco code coverage report",
+  "main": "parse.js",
+  "directories": {
+  "test": "test"
+  },
+  "dependencies": {
+    "balanced-match": "^1.0.0",
+    "chai": "^4.2.0",
+    "eslint": "^5.16.0",
+    "mocha": "^6.1.4",
+    "should": "^13.2.3",
+    "standard": "^12.0.1",
+    "xml2json": "^0.11.2"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.1.4"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "",
+  "license": "ISC"
+}

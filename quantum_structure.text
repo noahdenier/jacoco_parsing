@@ -1,0 +1,23 @@
+--Code
+    |
+    -- quantum
+         |
+         -- atom
+              |
+              -- blueprint (maps)
+                  | 
+                  -- secenario name/number
+                       |
+                        -- blueprint.csv
+              |
+              -- bond (delcaration of automated tests to consider for coverage)
+                  |
+                  -- bond.xml
+              |
+              -- feature (feature file)
+                   |
+                    -- atom.feature
+              | 
+              -- atom.xml
+         |
+          -- quantum.xml        
