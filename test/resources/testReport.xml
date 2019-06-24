@@ -131,8 +131,8 @@
         <sourcefile name="DogWalker.java"/>
         <sourcefile name="David.java">
             <line nr="10" mi="0" ci="3" mb="0" cb="0"/>
-            <line nr="16" mi="2" ci="0" mb="0" cb="0"/>
-            <line nr="21" mi="3" ci="0" mb="0" cb="0"/>
+            <line nr="16" mi="0" ci="2" mb="0" cb="0"/>
+            <line nr="21" mi="0" ci="3" mb="0" cb="0"/>
             <counter type="INSTRUCTION" missed="5" covered="3"/>
             <counter type="LINE" missed="2" covered="1"/>
             <counter type="COMPLEXITY" missed="2" covered="1"/>

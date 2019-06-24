@@ -1,86 +1,46 @@
 const fs = require('fs')
 const format = require('xml2json')
-module.exports = { convertJacocoReportXmltoJsonObj, diffCoverage }
+module.exports = { convertJacocoReportXmltoJsonObj }
 
 function convertJacocoReportXmltoJsonObj(reportXml, isFilePath = true) {
   if (isFilePath) {
     const xmlJSON = format.toJson(fs.readFileSync(reportXml, 'utf8'))
     const reportJSON = JSON.parse(xmlJSON)
     const packageJSON = reportJSON['report']['package']
-    let sourceFileJSON = []
+    let sourceFiles = []
     packageJSON.forEach(packageElement => {
       let packageName = packageElement['name']
       packageElement['sourcefile'].forEach(sourceFile => {
         sourceFile.name = packageName + '/' + sourceFile.name
-        if (sourceFile['line']) sourceFileJSON.push(sourceFile)
+        if (sourceFile['line']) {
+          const coverageFile = JacocoCoverageFile.parseJsonToCoverage(sourceFile)
+          sourceFiles.push(coverageFile)
+        }
       })
     })
-    return sourceFileJSON
+    return sourceFiles
   } else {
     // Placeholder, build functionality to serialize an XML document object to string
     return 'only accepts xml as path'
   }
 }
 
-function diffCoverage(jsonObj1, jsonObj2) {
-  mapping1 = createSourceFileNameToDataMap(jsonObj1)
-  mapping2 = createSourceFileNameToDataMap(jsonObj2)
-  diff = []
-  for (key in mapping1) {
-    if (!(key in mapping2)) {
-      diff.push({
-        name: key,
-        line: mapping1[key]['line'].map(line => parseInt(line.nr)),
-      })
-    } else {
-      data1 = mapping1[key]
-      data2 = mapping2[key]
-      missedLineNumbers = diffLineCoverageData(data1.line, data2.line)
-      if (missedLineNumbers.length > 0) {
-        diff.push({
-          name: key,
-          line: missedLineNumbers,
-        })
-      }
-    }
+class CoverageData {
+  constructor(name, coveredLines) {
+    this.name = name // Name of source file
+    this.coveredLines = coveredLines // List of numbers
   }
-  return diff
-}
 
-function createSourceFileNameToDataMap(sourceData) {
-  let mapping = {}
-  sourceData.forEach((obj) => {
-    mapping[obj.name] = obj
-  })
-  return mapping
-}
-
-function diffLineCoverageData(data1, data2) {
-  line1Map = createLineNumberToLineMap(data1)
-  line2Map = createLineNumberToLineMap(data2)
-  lineDiff = []
-  for (lineNumber in line1Map) {
-    if (!(lineNumber in line2Map)) {
-      lineDiff.push(parseInt(lineNumber))
-    } else {
-      coveredInstruction1 = line1Map[lineNumber]
-      coveredInstruction2 = line2Map[lineNumber]
-      // Both lines present, check to see if instructions are not covered by automated test
-      // TODO: Check if this is sufficient
-      if (coveredInstruction1 != '0' && coveredInstruction2 == '0') {
-        lineDiff.push(parseInt(lineNumber))
-      }
-    }
+  static parseJsonToCoverage(rawJsonObj) {
+    throw new Error('Not implemented')
   }
-  return lineDiff
 }
 
-function createLineNumberToLineMap(lineData) {
-  let mapping = {}
-  console.log(lineData)
-  lineDataAsArray = Array.isArray(lineData) ? lineData : [lineData]
-  lineDataAsArray.forEach((obj) => {
-    mapping[obj.nr] = obj.ci
-  })
-  return mapping
+class JacocoCoverageFile extends CoverageData {
+  static parseJsonToCoverage(rawJsonObj) {
+    const name = rawJsonObj.name
+    const lines = Array.isArray(rawJsonObj.line) ? rawJsonObj.line : [rawJsonObj.line]
+    const coveredLines = lines.filter((line) => line.ci !== '0').map((line) => parseInt(line.nr))
+    return new CoverageData.prototype.constructor(name, coveredLines)
+  }
 }
