@@ -4,7 +4,7 @@
   "description": "Javascript app for interpreting the results of a jacoco code coverage report",
   "main": "parse.js",
   "directories": {
-  "test": "test"
+    "test": "test"
   },
   "dependencies": {
     "balanced-match": "^1.0.0",
