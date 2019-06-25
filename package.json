@@ -9,18 +9,35 @@
   "dependencies": {
     "balanced-match": "^1.0.0",
     "chai": "^4.2.0",
-    "eslint": "^5.16.0",
+    "dotenv": "^8.0.0",
+    "eslint-config-prettier": "^6.0.0",
+    "jest": "^24.8.0",
     "mocha": "^6.1.4",
     "should": "^13.2.3",
     "standard": "^12.0.1",
     "xml2json": "^0.11.2"
   },
   "devDependencies": {
+    "@babel/core": "^7.4.5",
+    "@babel/node": "^7.4.5",
+    "@babel/preset-env": "^7.4.5",
+    "babel-jest": "^24.8.0",
     "chai": "^4.2.0",
+    "eslint": "^5.16.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.18.0",
+    "eslint-plugin-node": "^9.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.0",
     "mocha": "^6.1.4"
   },
+  "prettier": {
+    "singleQuote": true,
+    "semi": false,
+    "tabWidth": 2
+  },
   "scripts": {
-    "test": "mocha"
+    "test": "jest"
   },
   "author": "",
   "license": "ISC"
