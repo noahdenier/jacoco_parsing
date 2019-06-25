@@ -43,8 +43,7 @@
             <counter type="CLASS" missed="0" covered="1"/>
         </class>
         <sourcefile name="Perdita.java">
-            <line nr="6" mi="0" ci="3" mb="0" cb="0"/>
-            <line nr="9" mi="2" ci="0" mb="0" cb="0"/>
+            <line nr="6" mi="0" ci="0" mb="0" cb="0"/>
             <counter type="INSTRUCTION" missed="2" covered="3"/>
             <counter type="LINE" missed="1" covered="1"/>
             <counter type="COMPLEXITY" missed="1" covered="1"/>
@@ -120,9 +119,10 @@
         </class>
         <class name="com/dog/app/walkers/DogWalker" sourcefilename="DogWalker.java"/>
         <sourcefile name="Jeff.java">
-            <line nr="12" mi="0" ci="3" mb="0" cb="0"/>
+            <line nr="12" mi="0" ci="0" mb="0" cb="0"/>
             <line nr="19" mi="2" ci="0" mb="0" cb="0"/>
             <line nr="24" mi="4" ci="0" mb="0" cb="0"/>
+            <line nr="25" mi="0" ci="3" mb="0" cb="0"/>
             <counter type="INSTRUCTION" missed="6" covered="3"/>
             <counter type="LINE" missed="2" covered="1"/>
             <counter type="COMPLEXITY" missed="2" covered="1"/>
@@ -130,21 +130,6 @@
             <counter type="CLASS" missed="0" covered="1"/>
         </sourcefile>
         <sourcefile name="DogWalker.java"/>
-        <sourcefile name="David.java">
-            <line nr="10" mi="0" ci="3" mb="0" cb="0"/>
-            <line nr="16" mi="2" ci="0" mb="0" cb="0"/>
-            <line nr="21" mi="3" ci="0" mb="0" cb="0"/>
-            <counter type="INSTRUCTION" missed="5" covered="3"/>
-            <counter type="LINE" missed="2" covered="1"/>
-            <counter type="COMPLEXITY" missed="2" covered="1"/>
-            <counter type="METHOD" missed="2" covered="1"/>
-            <counter type="CLASS" missed="0" covered="1"/>
-        </sourcefile>
-        <counter type="INSTRUCTION" missed="11" covered="6"/>
-        <counter type="LINE" missed="4" covered="2"/>
-        <counter type="COMPLEXITY" missed="4" covered="2"/>
-        <counter type="METHOD" missed="4" covered="2"/>
-        <counter type="CLASS" missed="0" covered="2"/>
     </package>
     <package name="com/dog/app">
         <class name="com/dog/app/Application$$EnhancerBySpringCGLIB$$657b4fc4" sourcefilename="&lt;generated&gt;">

@@ -1,13 +1,14 @@
-const src = require('../src/jacocoReportXmlToJson')
+const converter = require('../src/converter')
 const path = require('path')
-var should = require('chai').should()
+const chai = require('chai')
+const should = chai.should()
 
 let jsonObj = []
 const xmlPath = path.join(__dirname, '/resources/testReport.xml')
 
 describe('Convert Jacoco Report XML to JSON - Main Functionality', function () {
   before('Run conversion on test data', function () {
-    jsonObj = src.convertJacocoReportXmltoJson(xmlPath)
+    jsonObj = converter.convertJacocoReportXmltoJsonObj(xmlPath)
   })
   // testReport.xml has a source file called DogWalkingSchedulingController.java, the following tests
   // assert that the xml parser created an object for this source file and that it has the expected
